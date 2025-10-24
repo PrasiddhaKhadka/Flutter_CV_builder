@@ -1,4 +1,6 @@
+import 'package:cv_builder/provider/templates_provider.dart';
 import 'package:cv_builder/provider/user_form_field_provider.dart';
+import 'package:cv_builder/views/form_screen/form_screen.dart';
 import 'package:cv_builder/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => UserFormFieldProvider()),
+        ChangeNotifierProvider(create: (context) => UserFormFieldProvider(),),
+        ChangeNotifierProvider(create: (context) => TemplatesProvider(),)
+
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -37,7 +41,7 @@ class MyApp extends StatelessWidget {
           // tested with just a hot reload.
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const HomeScreen(),
+        home:  HomeScreen(),
       ),
     );
   }
